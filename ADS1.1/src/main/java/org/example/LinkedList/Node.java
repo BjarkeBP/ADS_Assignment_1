@@ -1,4 +1,4 @@
-package org.example;
+package org.example.LinkedList;
 
 public class Node<T> {
     private T elm;

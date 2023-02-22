@@ -1,4 +1,4 @@
-package org.example;
+package org.example.LinkedList;
 
 public class ADSLinkedList<T> implements ADSListADT<T> {
 
@@ -16,8 +16,10 @@ public class ADSLinkedList<T> implements ADSListADT<T> {
             return;
         }
         Node<T> newNode = new Node(elm, null);
+
         if(size == 0){
             first = newNode;
+
         } else {
             Node<T> cur = first;
             while(cur.getNext() != null){
@@ -38,6 +40,7 @@ public class ADSLinkedList<T> implements ADSListADT<T> {
         Node<T> newNode = new Node(elm, null);
         if(index == 0) {
             newNode.setNext(first);
+            first = newNode;
         } else {
             Node<T> cur = first;
             int i = 0;
@@ -54,6 +57,7 @@ public class ADSLinkedList<T> implements ADSListADT<T> {
 
     @Override
     public boolean remove(T elm) {
+
         if (first==null){
             return false;
         }
@@ -121,17 +125,17 @@ public class ADSLinkedList<T> implements ADSListADT<T> {
                 if (i==0){
                     Node<T> temp3 = first;
                     first = first.getNext();
-                    size=-1;
+                    size-=1;
                     return temp3.getElm();
+                } else {
+                    Node next = temp.getNext();
+                    temp2.setNext(next);
+                    size-=1;
+                    return temp.getElm();
                 }
-
-                Node next = temp.getNext();
-                temp2.setNext(next);
-                size=-1;
-                return temp.getElm();
             }
             temp2 = temp;
-            temp = first.getNext();
+            temp = temp.getNext();
         }
         return null;
     }
@@ -149,5 +153,13 @@ public class ADSLinkedList<T> implements ADSListADT<T> {
             temp = temp.getNext();
         }
         return null;
+    }
+
+    public void print(){
+        Node<T> temp = first;
+        for (int i = 0; i < size; i++) {
+            System.out.println(temp);
+            temp = temp.getNext();
+        }
     }
 }

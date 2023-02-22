@@ -1,6 +1,10 @@
-package org.example;
+package org.example.Stack;
 
-public class ADSLinkedListStack<T> implements StackInterface<T>{
+import org.example.LinkedList.ADSLinkedList;
+import org.example.LinkedList.ADSListADT;
+import org.example.Stack.StackInterface;
+
+public class ADSLinkedListStack<T> implements StackInterface<T> {
 
     private ADSListADT<T> LinkedList;
 
